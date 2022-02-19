@@ -1,9 +1,21 @@
 package com.lokman.UrlShortener.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="url")
 public class ShortenUrl {
 
-	private String longUrl;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	private Long id;
 	private String shortUrl;
+	private String longUrl;
 
 	public String getLongUrl() {
 		return longUrl;

@@ -4,25 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lokman.UrlShortener.Model.ShortenUrl;
-import com.lokman.UrlShortener.Repository.UrlRepository;
+import com.lokman.UrlShortener.Repository.UrlJpaRepository;
 
 @Service
 public class ShortenUrlService {
 
 	@Autowired
-	private UrlRepository urlRepositoy;
+	private UrlJpaRepository urlRepository;
 
 	public ShortenUrl getShortUrl(ShortenUrl shortenUrl) {
 		String shortUrl = generateShortUrl();
 		shortenUrl.setShortUrl(shortUrl);
 
-		urlRepositoy.save(shortUrl, shortenUrl);
+		urlRepository.save(shortenUrl);
 
 		return shortenUrl;
 	}
 
 	public ShortenUrl getLongUrl(String shorUrl) {
-		return urlRepositoy.getShortUrl(shorUrl);
+
+		return urlRepository.findByShortUrl(shorUrl);
+
 	}
 
 	private String generateShortUrl() {
