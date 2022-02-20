@@ -1,6 +1,9 @@
 package com.lokman.UrlShortener.Controllers;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,6 +22,7 @@ import com.lokman.UrlShortener.Service.ShortenUrlService;
 
 @RestController
 @RequestMapping("/api")
+
 public class ShortUrlGeneratorRestService {
 
 	@Autowired
@@ -27,21 +31,48 @@ public class ShortUrlGeneratorRestService {
 	@PostMapping("/generateShortUrl")
 	public ResponseEntity generateShortUrl(@RequestBody ShortenUrl shortenUrl) {
 
-		shortenUrl = service.getShortUrl(shortenUrl);
+		String longUrl = shortenUrl.getLongUrl();
+		if (isValidUrl(longUrl)) {
+			shortenUrl = service.getShortUrl(shortenUrl);
+			System.out.println(shortenUrl);
+			return new ResponseEntity<>(shortenUrl, HttpStatus.OK);
 
-		System.out.println(shortenUrl);
-		return new ResponseEntity<>(shortenUrl, HttpStatus.OK);
+		}
+
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 
 	}
 
 	@GetMapping("/getLongUrl/{shortUrl}")
-	public void getLongUrlByShortUrl(HttpServletResponse response, @PathVariable String shortUrl) {
+	public ResponseEntity getLongUrlByShortUrl(HttpServletResponse response, @PathVariable String shortUrl) {
 
 		ShortenUrl shortenUrl = service.getLongUrl(shortUrl);
+		System.out.println(shortenUrl.getLongUrl());
+		if (shortenUrl != null) {
+
+			return ResponseEntity.ok().body(shortenUrl);
+		}
+
+		return null;
+	}
+
+	public static boolean isValidUrl(String host) {
+		HttpURLConnection connection = null;
 		try {
-			response.sendRedirect(shortenUrl.getLongUrl());
+			connection = (HttpURLConnection) new URL(host).openConnection();
+			connection.setRequestMethod("HEAD");
+			int responseCode = connection.getResponseCode();
+			if (responseCode != 200) {
+				return false;
+			}
+			return true;
+		} catch (MalformedURLException e) {
+			return false;
 		} catch (IOException e) {
-			e.printStackTrace();
+
+			return false;
+		} finally {
+			connection.disconnect();
 		}
 	}
 }

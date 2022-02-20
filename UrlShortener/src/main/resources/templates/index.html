@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Url shortener page</title>
+</head>
+<body>
+	<div class="container">
+
+		<div class="header center-display">
+			<p>Url Shortener</p>
+		</div>
+		<div class="form-body">
+			<form class="grid-body">
+
+				Long url: <input type="text" name='longUrl' id='longUrl'>
+			</form>
+
+			<div class="center-display">
+				<input type="submit" class="form-submit" value="Get short url"
+					onclick="getTinyUrl()"> <input type="Submit"
+					class="form-clear" value="Clear" onclick="ClearFields()">
+
+			</div>
+
+			<div class="grid-body">
+
+				Short url:<input type="text" name='shortUrl' id='shortUrl'>
+
+				<div class="center-display">
+					<input type="submit" class="go-button-redirect" value="Go"
+						onclick="redirect()">
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script src="/js/main.js" type="text/javascript"></script>
+</body>
+
+<style>
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #c0c4c3;
+}
+
+.header {
+	background-color: transparent;
+	max-height: 100px;
+	font-size: 30px;
+	color: darkblue;
+}
+
+.form-body {
+	align-self: center;
+	height: 100%;
+	display: grid;
+	grid-row-gap: 20px;
+}
+
+.grid-body {
+	display: grid;
+	grid-row-gap: 10px;
+	font-size: 25px;
+	color: darkblue;
+}
+
+.go-button-redirect {
+	text-align: center;
+	width: 40px;
+	background-color: ghostwhite;
+}
+
+.center-display {
+	display: flex;
+	justify-content: center;
+}
+
+.form-submit {
+	background-color: ghostwhite;
+	margin-right: 5px;
+}
+
+.form-clear {
+	background-color: ghostwhite;
+	margin-right: 5px;
+}
+</style>
+</html>
