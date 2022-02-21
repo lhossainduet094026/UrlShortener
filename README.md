@@ -61,5 +61,7 @@ Response body:
 
 -- Then go to your browser and type in the address bar http://localhost:8080/
 
+--To see url stored into h2 database just type in the new tab http://localhost:8080/h2-console/
+
 --Then use it .
 
