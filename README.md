@@ -15,7 +15,7 @@ Features:
 
 End point: http://localhost:8080/api/generateShortUrl/
 
-Request body:
+<u> Request body: </u>
 
 {
   
