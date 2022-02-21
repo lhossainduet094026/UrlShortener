@@ -55,6 +55,8 @@ Response body:
 
 --Update maven project.
 
+--Install maven.
+
 --Go to UrlShortenerApplication .
 
 --Right click and run as java application .
@@ -64,4 +66,7 @@ Response body:
 --To see url stored into h2 database just type in the new tab http://localhost:8080/h2-console/
 
 --Then use it .
+
+# Future update
+--Listing all the url in the UI. So that user can choose to redirect.
 
