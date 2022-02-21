@@ -1,12 +1,14 @@
 const longField = document.getElementById('longUrl');
 const keyField = document.getElementById('shortUrl');
+const warning_div = document.getElementById('warning');
+
 function getTinyUrl() {
+
 	let longUrl = longField.value;
 	if (longUrl === "") {
 		alert("Please give long url");
 	}
 	else {
-		//code for json fetch
 		const data = {
 			longUrl: longUrl,
 		};
@@ -18,14 +20,28 @@ function getTinyUrl() {
 			},
 			body: JSON.stringify(data),
 		})
-			.then(response => response.json())
+			.then(response => {
+
+				if (response.ok) {
+					warning_div.hidden = true;
+					return response.json();
+				}
+				else {
+					throw new Error("Invalid Url");
+				}
+
+			})
+
 			.then(data => {
 
 				console.log(data);
+
 				keyField.value = data.shortUrl
+
 			})
 			.catch((error) => {
-				//console.error('Error:', error);
+				warning_div.hidden = false;
+				warning_div.innerHTML = error.message
 			});
 	}
 }
@@ -51,8 +67,8 @@ function redirect() {
 
 function ClearFields() {
 
-     longField.value = "";
-     keyField.value = "";
-     
-     longField.focus();
+	longField.value = "";
+	keyField.value = "";
+	warning_div.hidden = true;
+	longField.focus();
 }

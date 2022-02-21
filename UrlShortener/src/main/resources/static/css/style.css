@@ -1,0 +1,93 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #d4eee8;
+}
+
+.header {
+	background-color: transparent;
+	max-height: 100px;
+	font-size: 40px;
+	color: darkblue;
+}
+
+.form-body {
+	align-self: center;
+	height: 100%;
+	display: grid;
+	grid-row-gap: 20px;
+}
+
+.grid-body {
+	display: grid;
+	grid-row-gap: 10px;
+	font-size: 25px;
+	color: darkblue;
+}
+
+.go-button-redirect {
+	text-align: center;
+	width: 100px;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.center-display {
+	display: flex;
+	justify-content: center;
+}
+
+.form-submit {
+	width: 50%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.form-clear {
+	width: 50%;
+	background-color: red;
+	color: white;
+	padding: 14px 20px;
+	margin-left: 5px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#warning {
+	color: red;
+	text-align: center;
+	font-style: oblique;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#longUrl {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+#shortUrl {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}

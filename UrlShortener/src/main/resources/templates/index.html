@@ -3,6 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Url shortener page</title>
+<link rel="stylesheet " href="/css/style.css"/>
 </head>
 <body>
 	<div class="container">
@@ -15,6 +16,8 @@
 
 				Long url: <input type="text" name='longUrl' id='longUrl'>
 			</form>
+
+			<div id="warning" hidden=true></div>
 
 			<div class="center-display">
 				<input type="submit" class="form-submit" value="Get short url"
@@ -40,54 +43,4 @@
 	<script src="/js/main.js" type="text/javascript"></script>
 </body>
 
-<style>
-.container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background-color: #c0c4c3;
-}
-
-.header {
-	background-color: transparent;
-	max-height: 100px;
-	font-size: 30px;
-	color: darkblue;
-}
-
-.form-body {
-	align-self: center;
-	height: 100%;
-	display: grid;
-	grid-row-gap: 20px;
-}
-
-.grid-body {
-	display: grid;
-	grid-row-gap: 10px;
-	font-size: 25px;
-	color: darkblue;
-}
-
-.go-button-redirect {
-	text-align: center;
-	width: 40px;
-	background-color: ghostwhite;
-}
-
-.center-display {
-	display: flex;
-	justify-content: center;
-}
-
-.form-submit {
-	background-color: ghostwhite;
-	margin-right: 5px;
-}
-
-.form-clear {
-	background-color: ghostwhite;
-	margin-right: 5px;
-}
-</style>
 </html>
