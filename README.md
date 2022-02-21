@@ -1,4 +1,4 @@
-Url Shortener
+#Url Shortener
 This is Url Shortener assignment Motivation Implemented a Url Shortener .
 
 Features:
@@ -9,7 +9,7 @@ Features:
 
 --User can redirect to the Long url by using that short url.
 
-API documentation
+#API documentation
 
 --POST request to generate short url
 
@@ -47,7 +47,7 @@ Response body:
 }
 
 
-Project deployment documentation
+#Project deployment documentation
 
 --Download the zip folder from the repository
 
