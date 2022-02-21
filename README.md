@@ -18,7 +18,8 @@ End point: http://localhost:8080/api/generateShortUrl/
 Request body:
 
 {
-    "longUrl":"https://www.google.com/",
+  
+  "longUrl":"https://www.google.com/",
     
     "shorUrl":null
 }
@@ -26,7 +27,8 @@ Request body:
 Response body:
 
 {
-    "shortUrl": "JuEGV",
+   
+   "shortUrl": "JuEGV",
     
     "longUrl": "https://www.google.com/"
 }
@@ -38,6 +40,7 @@ End point :http://localhost:8080/api/getLongUrl/JuEGV
 Response body:
 
 {
+
     "shortUrl": "JuEGV",
     
     "longUrl": "https://www.google.com/"
